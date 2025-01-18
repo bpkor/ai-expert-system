@@ -49,8 +49,12 @@ PROMPT_TEMPLATE = """
 5. 각 연 사이에는 빈 줄을 넣을 것
 """
 
-@functions_framework.http
+import os
+from functions_framework import http
+
+@http
 def hello_http(request):
+    # 나머지 코드는 그대로
     # 기본값 설정
     topic = request.form.get('topic', '') if request.method == 'POST' else ''
     poem = ""
